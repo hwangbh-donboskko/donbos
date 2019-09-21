@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -35,4 +37,18 @@ public class Account {
     )
     private Address address;
 
+    @OneToMany(mappedBy = "account")
+    private Set<Study> studies = new HashSet<>();
+
+    public void setStudy(Study study) {
+        study.setAccount(this);
+        this.getStudies().add(study);
+    }
+
+    public void removeStudy(Study study) {
+        study.setAccount(null);
+        this.getStudies().remove(study);
+    }
+
 }
+

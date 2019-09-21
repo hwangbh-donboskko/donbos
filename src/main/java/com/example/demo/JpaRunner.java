@@ -14,6 +14,9 @@ import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
 
 @Component
 @Transactional
@@ -35,9 +38,16 @@ public class JpaRunner implements ApplicationRunner {
         account.setUsername("mike3");
         account.setPassword("aaaa");
 
+        Address address = new Address();
+
+
         Study study = new Study();
         study.setName("spring jpa");
+
+        account.setStudy(study);
+
         study.setAccount(account);
+        account.getStudies().add(study);
 
         System.out.println("test....");
 
