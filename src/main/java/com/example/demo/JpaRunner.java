@@ -18,8 +18,11 @@ import java.util.List;
 @Transactional
 public class JpaRunner implements ApplicationRunner {
 
-    @PersistenceContext
-    EntityManager entityManager;
+//    @PersistenceContext
+//    EntityManager entityManager;
+
+    @Autowired
+    PostRepos1tory1 postRepos1tory1;
 
     @Autowired
     DataSource dataSource;
@@ -31,9 +34,15 @@ public class JpaRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        TypedQuery<Post> query = entityManager.createQuery("select p from Post as p", Post.class);
-        List<Post> resultList = query.getResultList();
-        resultList.forEach(System.out::println);
+        postRepos1tory1.findAll().forEach(System.out::println);
+
+//        TypedQuery<Post> query = entityManager.createQuery("select p from Post as p", Post.class);
+//        List<Post> resultList = query.getResultList();
+//        resultList.forEach(System.out::println);
+
+
+//        List<Post> resultList = entityManager.createNativeQuery("select * from Post", Post.class).getResultList();
+//        resultList.forEach(System.out::println);
 
        /* Post post = new Post();
         post.setTitle("jpa lesson");

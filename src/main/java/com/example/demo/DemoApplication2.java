@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 
 
-@SpringBootApplication
+
 @Slf4j
 @EnableAsync
 public class DemoApplication2 {

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@SpringBootApplication
+
 @Slf4j
 @EnableAsync
 public class DemoApplication1 {
