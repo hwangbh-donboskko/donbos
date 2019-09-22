@@ -4,14 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @Slf4j
+@NamedQuery(name = "DslAccount.findByLesson" , query = "select p from DslAccount as p where p.lesson = ?1")
 public class DslAccount {
 
     @Id@GeneratedValue
@@ -24,6 +24,8 @@ public class DslAccount {
     private String lName;
 
     private String lesson;
+
+
 
 
 }
