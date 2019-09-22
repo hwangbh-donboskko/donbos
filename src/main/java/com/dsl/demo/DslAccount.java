@@ -23,5 +23,7 @@ public class DslAccount {
 
     private String lName;
 
+    private String lesson;
+
 
 }
