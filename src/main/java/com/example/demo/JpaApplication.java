@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.Netty4ClientHttpRequestFactory;
 import org.springframework.scheduling.annotation.Async;
@@ -25,6 +26,7 @@ import java.util.function.Function;
 
 @SpringBootApplication
 @Slf4j
+@EnableJpaRepositories(repositoryBaseClass = SimpleMyRepository.class)
 public class JpaApplication {
 
 
